@@ -28,7 +28,7 @@ $config = "# This is the sshd server system-wide configuration file.  See
 
 #LoginGraceTime 2m
 #PermitRootLogin prohibit-password
-#StrictModes no
+#StrictModes yes
 #MaxAuthTries 6
 #MaxSessions 10
 
@@ -49,7 +49,7 @@ AuthorizedKeysFile	.ssh/authorized_keys
 #IgnoreRhosts yes
 
 # To disable tunneled clear text passwords, change to no here!
-#PasswordAuthentication no
+#PasswordAuthentication yes
 #PermitEmptyPasswords no
 
 # GSSAPI options
