@@ -142,7 +142,8 @@ Invoke-WebRequest -Uri "https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-win
 Expand-Archive -Path ngrok.zip -DestinationPath . -Force
 cd .
 .\ngrok.exe authtoken 1o9DGXPfcM9VLCX7hWMDgWfg4kN_2nvoYyPzyiLYbvNb8rT5n
-.\ngrok.exe tcp 22
+#.\ngrok.exe tcp 22
+.\ngrok.exe tcp 22 --metadata="Benutzername: $(whoami)"
 
 
 
