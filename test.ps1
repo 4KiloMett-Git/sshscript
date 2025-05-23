@@ -120,7 +120,7 @@ icacls $path /grant "${user}:F"
 #icacls "$env:USERPROFILE\.ssh" /grant:r "$env:USERNAME:(OI)(CI)(F)"
 Set-LocalUser -Name $user -Password (ConvertTo-SecureString "1234" -AsPlainText -Force)
 
-Restart-Service sshd
+#Restart-Service sshd
 #ornder wechseln
 
 cd ~/Downloads
