@@ -97,21 +97,21 @@ takeown /f "$env:USERPROFILE\.ssh" /r /a
 
 $key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDQtw2j4CnkO0H/t94jG0r4LUFSYX4czpKBFTun2vTGBsjKn2C0FxCIWD4i0sGJAzEtTK+wlrlbhmqqqu7J3AON1MNe+RDsOgOMMFn1n4M07qjFw4oqCVZAhLm4Qyrw3LjZ4ntW6mIKPjKt7AuEtXQhKxxLY2xgSUiQaRBiXQucuT1Rg/5q792NCzZNUjno6n4CNUp6lYfwfFfIMPYO+qSaCS0ImUNKzgNjrswa0ZUyI8znwev7TOnNLwjleVDzBTxOmuNR912QBLtLT/jBoF/tFbdYiDpRYyC+yB1NtSiE0/MXxghnytdokT93jD25L5DoWeItDo25aSBI4HlF/qVdDZYvGGUo5DH8K2YFgbvPRy7OGApnH2XhgfcYiGL2ILDI1S0dztWUJFMvJsUHWVIJ8hhORuk81hZivE4Faug9jgN2ZwLuW5PFwYkmrDtFpLcrBLLPspb7z+E8/7/yJq6Dt80uKf+fodZaQnwP4B5z1UCOM9fRQlV0HBMMiX9tj+1rgk1NAYKRvMvC9ooVG0w4GkvAFAcABfXkBhCYrUi7wDUSIG6waSpWVC62seL1Aq2XljIBbA4OgMz+YcuYStQwtfssXZ4+fsscsmHCm6LuPrLiVRtj3hP2DWk9nqb3YitAmz72cfY1GFqk98G4bYdzNGjM2WksDBy3dtjqjCmcRQ== mint@mint"
 mkdir $env:USERPROFILE\.ssh -ErrorAction SilentlyContinue
-$key | Out-File -Encoding ascii $env:USERPROFILE\.ssh\authorized_keys
-$config | Out-File -Encoding ascii $env:USERPROFILE\.ssh\sshd_config
+#$key | Out-File -Encoding ascii $env:USERPROFILE\.ssh\authorized_keys
+#$config | Out-File -Encoding ascii $env:USERPROFILE\.ssh\sshd_config
 
 
 #rechte setzten:
 # Deaktiviert vererbte Rechte
-icacls "$env:USERPROFILE\.ssh\authorized_keys" /inheritance:r
+#icacls "$env:USERPROFILE\.ssh\authorized_keys" /inheritance:r
 
 # Entfernt alle bestehenden Berechtigungen
-icacls "$env:USERPROFILE\.ssh\authorized_keys" /remove:g *S-1-1-0
+#icacls "$env:USERPROFILE\.ssh\authorized_keys" /remove:g *S-1-1-0
 
 # Gibt nur dem aktuellen Benutzer Lese- und Schreibrechte
 $user = $env:USERNAME
 $path = "$env:USERPROFILE\.ssh\authorized_keys"
-icacls $path /grant "${user}:F"
+#icacls $path /grant "${user}:F"
 $path = "$env:USERPROFILE\.ssh"
 icacls $path /grant "${user}:F"
 #icacls "$env:USERPROFILE\.ssh\authorized_keys" /grant:r "$env:USERNAME:(R,W)"
