@@ -103,18 +103,18 @@ mkdir $env:USERPROFILE\.ssh -ErrorAction SilentlyContinue
 
 #rechte setzten:
 # Deaktiviert vererbte Rechte
-#icacls "$env:USERPROFILE\.ssh\authorized_keys" /inheritance:r
+icacls "$env:USERPROFILE\.ssh\authorized_keys" /inheritance:r
 
 # Entfernt alle bestehenden Berechtigungen
-#icacls "$env:USERPROFILE\.ssh\authorized_keys" /remove:g *S-1-1-0
+icacls "$env:USERPROFILE\.ssh\authorized_keys" /remove:g *S-1-1-0
 
 # Gibt nur dem aktuellen Benutzer Lese- und Schreibrechte
 $user = $env:USERNAME
 $path = "$env:USERPROFILE\.ssh\authorized_keys"
-#icacls $path /grant "${user}:F"
+icacls $path /grant "${user}:F"
 $path = "$env:USERPROFILE\.ssh"
 icacls $path /grant "${user}:F"
-#icacls "$env:USERPROFILE\.ssh\authorized_keys" /grant:r "$env:USERNAME:(R,W)"
+icacls "$env:USERPROFILE\.ssh\authorized_keys" /grant:r "$env:USERNAME:(R,W)"
 
 #icacls "$env:USERPROFILE\.ssh" /inheritance:r
 #icacls "$env:USERPROFILE\.ssh" /grant:r "$env:USERNAME:(OI)(CI)(F)"
